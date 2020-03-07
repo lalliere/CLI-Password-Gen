@@ -9,7 +9,7 @@ This application is a Command LIne Interface that uses Node, Inquirer, and ES6 c
 
 The user will be prompted to choose from the following password criteria:
 * Length (must be between 8 and 128 characters)
-* Character type (user chooses "OK" if they want their password to include the character type in their password or "Cancel" if they do not):
+* Character type (user selects each of the following character types that they wish to include):
     * Special characters
     * Numeric characters
     * Lowercase characters

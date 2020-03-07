@@ -1,0 +1,22 @@
+{
+  "name": "cli-password-gen",
+  "version": "1.0.0",
+  "description": "## Link: lalliere.github.io/password-generator/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lalliere/CLI-Password-Gen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lalliere/CLI-Password-Gen/issues"
+  },
+  "homepage": "https://github.com/lalliere/CLI-Password-Gen#readme",
+  "dependencies": {
+    "inquirer": "^7.0.6"
+  }
+}
