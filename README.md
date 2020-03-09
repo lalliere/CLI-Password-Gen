@@ -9,13 +9,18 @@ This application is a Command LIne Interface that uses Node, Inquirer, and ES6 c
 
 The user will be prompted to choose from the following password criteria:
 * Length (must be between 8 and 128 characters)
+    * Application will alert you if invalid number of characters is chosen
 * Character type (user selects each of the following character types that they wish to include):
     * Special characters
     * Numeric characters
     * Lowercase characters
     * Uppercase characters
 
-The application will then provide the user with a randomly generated password consisting of the selected character types above and display the new password on the screen.
+The application will then provide the user with a randomly generated password consisting of the selected character types above and will display the new password on the terminal screen.
+
+## Preview
+
+<img src="./assets/preview.png">
 
 ## Got Questions? 
 ### Ask Me:
