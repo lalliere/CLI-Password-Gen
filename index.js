@@ -7,7 +7,7 @@ class displayPass {
     }
 
     printInfo() {
-        console.log(chalk.blue(`Success! Your random password is: ${this.passStr}`));
+        console.log(chalk.green(`Success! Your random password is: ${this.passStr}`));
     }
 
 }
