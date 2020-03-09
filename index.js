@@ -7,7 +7,7 @@ class displayPass {
     }
 
     printInfo() {
-        console.log(`Success! Your random password is: ${displayP.passStr}`);
+        console.log(`Success! Your random password is: ${this.passStr}`);
     }
 
 }
@@ -21,26 +21,31 @@ class genPass {
     }
 
     generatePassword() {
+        console.log(this.passLength);
+        console.log(this.passChoices);
+        
         let passString = "";
-        let length = this.passLength
+        let length = this.passLength;
         
         for (i = 0; i < length; i++) {
         
-            let randomChoices = gPass.passChoices[Math.floor(Math.random() * gPass.passChoices.length)];
-            let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
-        
+            let randomChoices = this.passChoices[Math.floor(Math.random() * this.passChoices.length)];
+            let selection = randomChoices[Math.floor(Math.random() * this.passChoices.length)];
+
             passString += selection;
+        
+            console.log(passString);
         }
-    
-        gPass.newP = passString;
-        gPass.lastStep();
+        // this.newP = passString;
+        // this.lastStep();
     }
 
-    lastStep() {
-        const displayP = new displayPass(this.newP);
+    // lastStep() {
+    //     console.log(this.newP);
+    //     const displayP = new displayPass(this.newP);
 
-        displayP.printInfo();
-    }
+    //     displayP.printInfo();
+    // }
 
 }
 
@@ -126,7 +131,7 @@ class newPass {
 
     nextStep() {
        
-        const gPass = new genPass(this.wordLength, this.passArray);
+        const gPass = new genPass(password.wordLength, password.passArray);
 
         gPass.generatePassword();
     }
