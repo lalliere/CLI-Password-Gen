@@ -7,7 +7,7 @@ class displayPass {
     }
 
     printInfo() {
-        console.log(`Success! Your random password is: ${this.passStr}`);
+        console.log(`Success! Your random password is: ${displayP.passStr}`);
     }
 
 }
@@ -22,9 +22,9 @@ class genPass {
 
     generatePassword() {
         let passString = "";
+        let length = this.passLength
         
-        
-        for (i = 0; i < gPass.passLength; i++) {
+        for (i = 0; i < length; i++) {
         
             let randomChoices = gPass.passChoices[Math.floor(Math.random() * gPass.passChoices.length)];
             let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
@@ -37,7 +37,7 @@ class genPass {
     }
 
     lastStep() {
-        const displayP = new displayPass(`${this.newP}`);
+        const displayP = new displayPass(this.newP);
 
         displayP.printInfo();
     }
@@ -125,7 +125,8 @@ class newPass {
     }
 
     nextStep() {
-        const gPass = new genPass(`${this.wordLength}, ${this.passArray}`);
+       
+        const gPass = new genPass(this.wordLength, this.passArray);
 
         gPass.generatePassword();
     }
