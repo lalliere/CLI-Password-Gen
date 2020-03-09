@@ -7,7 +7,7 @@ class displayPass {
     }
 
     printInfo() {
-        console.log(`Success! Your random password is: ${this.passStr}`);
+        console.log(chalk.blue(`Success! Your random password is: ${this.passStr}`));
     }
 
 }
@@ -36,7 +36,6 @@ class genPass {
         
         }
         
-        // console.log(passString);
         this.newP = passString;
         this.lastStep();
     }
