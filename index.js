@@ -13,7 +13,7 @@ class displayPass {
 }
 
 class genPass {
-    passString = "";
+    newP = "";
 
     constructor(passLength, passChoices) {
         this.passLength = passLength;
@@ -21,8 +21,6 @@ class genPass {
     }
 
     generatePassword() {
-        console.log(this.passLength);
-        console.log(this.passChoices);
         
         let passString = "";
         let length = this.passLength;
@@ -38,13 +36,14 @@ class genPass {
         
         }
         
-        //console.log(passString);
+        // console.log(passString);
+        this.newP = passString;
         this.lastStep();
     }
 
     lastStep() {
-        console.log(this.passString);
-        const displayP = new displayPass(this.passString);
+
+        const displayP = new displayPass(this.newP);
 
         displayP.printInfo();
     }
