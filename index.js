@@ -1,50 +1,53 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
-// class genPass {
-//     constructor(length, pass) {
-//         this.lengthPass = lengthPass;
-//         this.pass = pass;
-//     }
+class displayPass {
+    constructor (passStr) {
+        this.passStr = passStr;
+    }
 
-//     generatePassword() {
-//         let passString = "";
-//         for (i = 0; i < lengthOfPass; i++) {
-            
-//             let randomChoices = this.pass[Math.floor(Math.random() * this.pass.length)];
-//             let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
-            
-//             passString += selection;
-//         }
+    printInfo() {
+        console.log(`Success! Your random password is: ${this.passStr}`);
+    }
+
+}
+
+class genPass {
+    newP = "";
+
+    constructor(passLength, passChoices) {
+        this.passLength = passLength;
+        this.passChoices = passChoices;
+    }
+
+    generatePassword() {
+        let passString = "";
         
-//         return new displayPassword(passString);
-//     }
+        
+        for (i = 0; i < gPass.passLength; i++) {
+        
+            let randomChoices = gPass.passChoices[Math.floor(Math.random() * gPass.passChoices.length)];
+            let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
+        
+            passString += selection;
+        }
+    
+        gPass.newP = passString;
+        gPass.lastStep();
+    }
 
-// }
+    lastStep() {
+        const displayP = new displayPass(`${this.newP}`);
 
-// class displayPassword {
-//     constructor (passString) {
-//         this.passString = passString;
-//     }
+        displayP.printInfo();
+    }
 
-//     printInfo() {
-//         console.log(`Success! Your random password is: ${this.passString}`);
-//     }
-
-// }
-
+}
 
 class newPass {
-
+    
     wordLength = 0;
     passArray = [];
-
-
-    constructor(wordLength, passArray) {
-        this.wordLength = wordLength;
-        this.passArray = passArray;
-    }
-        
 
     askLength() {
         inquirer
@@ -67,9 +70,7 @@ class newPass {
             password.wordLength = pLength;
         });
 
-       console.log(password.wordLength); 
     }
-    
     
 
     askChoices() {
@@ -116,12 +117,20 @@ class newPass {
                 
             }
 
-            this.passArray = arrayArray;
+            password.passArray = arrayArray;
+            password.nextStep();
 
         });
 
     }
+
+    nextStep() {
+        const gPass = new genPass(`${this.wordLength}, ${this.passArray}`);
+
+        gPass.generatePassword();
+    }
     
+
 };
 
 
