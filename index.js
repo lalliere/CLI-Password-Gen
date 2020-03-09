@@ -13,7 +13,7 @@ class displayPass {
 }
 
 class genPass {
-    newP = "";
+    passString = "";
 
     constructor(passLength, passChoices) {
         this.passLength = passLength;
@@ -26,26 +26,28 @@ class genPass {
         
         let passString = "";
         let length = this.passLength;
-        
+        let i = 0;
+
         for (i = 0; i < length; i++) {
+
         
             let randomChoices = this.passChoices[Math.floor(Math.random() * this.passChoices.length)];
-            let selection = randomChoices[Math.floor(Math.random() * this.passChoices.length)];
+            let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
 
             passString += selection;
         
-            console.log(passString);
         }
-        // this.newP = passString;
-        // this.lastStep();
+        
+        //console.log(passString);
+        this.lastStep();
     }
 
-    // lastStep() {
-    //     console.log(this.newP);
-    //     const displayP = new displayPass(this.newP);
+    lastStep() {
+        console.log(this.passString);
+        const displayP = new displayPass(this.passString);
 
-    //     displayP.printInfo();
-    // }
+        displayP.printInfo();
+    }
 
 }
 
