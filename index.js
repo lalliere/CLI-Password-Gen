@@ -9,7 +9,7 @@ const chalk = require("chalk");
 
 //     generatePassword() {
 //         let passString = "";
-//         for (i = 0; i < lengthPass; i++) {
+//         for (i = 0; i < lengthOfPass; i++) {
             
 //             let randomChoices = this.pass[Math.floor(Math.random() * this.pass.length)];
 //             let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
@@ -35,48 +35,52 @@ const chalk = require("chalk");
 
 
 class newPass {
-    
-    // passParams() {
-    //     newPass.lengthPass = password.askLength.lengthOfPass;
-    //     newPass.passArray = password.askChoices.pass;
 
-    //     console.log(newPass.lengthPass);
-    //     console.log(newPass.passArray);
+    wordLength = 0;
+    passArray = [];
 
-    //     //let newPassKey = new genPass(lengthPass, passArray);
-    // }
+
+    constructor(wordLength, passArray) {
+        this.wordLength = wordLength;
+        this.passArray = passArray;
+    }
+        
 
     askLength() {
-        return inquirer
+        inquirer
         .prompt(
-            {
+               {
                 type: "number",
                 name: "passLength",
                 message: "How many characters would you like your password to contain? Please choose a number between 8 and 128.",
             }
         ).then(function(val) {
-            let lengthOfPass = parseInt(`${val.passLength}`);
+            let pLength = parseInt(`${val.passLength}`);
 
-            if ((lengthOfPass < 8) || (lengthOfPass > 128)) {
+            if ((pLength < 8) || (pLength > 128)) {
                 console.log(chalk.red("Please restart and input a valid length for your password."));
                 password.askLength();
             } else {
                 password.askChoices();
-            };
+            }
 
-            console.log(lengthOfPass);
+            password.wordLength = pLength;
         });
-        
+
+       console.log(password.wordLength); 
     }
     
+    
+
     askChoices() {
-        let passArray = [];
+        let arrayArray = [];
+
         let characters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "[", "]", "<", ">", "?", ".", ","];
         let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         let smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         let bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         
-        return inquirer
+        inquirer
         .prompt(
             {
                 type: "checkbox",
@@ -93,33 +97,35 @@ class newPass {
             let userChoice = answers.charChoices;
     
             if(userChoice.includes("Numbers")) {
-                passArray.push(digits)
+                arrayArray.push(digits)
     
             }
             
             if (userChoice.includes("Special Characters")) {
-                passArray.push(characters)
+                arrayArray.push(characters)
     
             } 
             
             if (userChoice.includes("Lowercase Letters")) {
-                passArray.push(smallLetters)
+                arrayArray.push(smallLetters)
                 
             } 
             
             if (userChoice.includes("Uppercase Letters")) {
-                passArray.push(bigLetters)
+                arrayArray.push(bigLetters)
                 
             }
 
-            console.log(passArray);
+            this.passArray = arrayArray;
+
         });
 
     }
-
+    
 };
 
 
-const password = new newPass();
+
+let password = new newPass();
 
 password.askLength();
