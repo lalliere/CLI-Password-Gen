@@ -1,11 +1,9 @@
 # Random Password Generator CLI
 
-## Link: lalliere.github.io/password-generator/
-
 ## Project Description
 Need a new password? This Password Generator will provide you with a strong, randomly generated password in seconds.
 
-This application is a Command LIne Interface that uses Node, Inquirer, and ES6 classes.
+This application is a Command Line Interface that uses Node, Inquirer, and ES6 classes.
 
 The user will be prompted to choose from the following password criteria:
 * Length (must be between 8 and 128 characters)
